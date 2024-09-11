@@ -32,7 +32,7 @@ function getMemberInfosByMembersId($id){
 
 function getAllRole(){
     $dbh = dbconnect();
-    $query = "SELECT nom_role FROM role";
+    $query = "SELECT nom_role, id FROM role";
     $stmt = $dbh->prepare($query);
     $stmt->execute();
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -41,7 +41,7 @@ function getAllRole(){
 
 function getAllInteret(){
     $dbh = dbconnect();
-    $query = "SELECT nom_interet FROM interets";
+    $query = "SELECT * FROM interets";
     $stmt = $dbh->prepare($query);
     $stmt->execute();
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -142,8 +142,29 @@ function deleteInteret($name){
     $stmt->execute();
 }
 
-function addInterestIntoMember($name){
+function addInterestIntoMember($idInteret, $idMembre){
     $dbh =dbconnect();
-   
+    $query = "INSERT INTO membres_interets(interet_id ,membre_id)
+    VALUES (:idInteret, :idMembre)";
+    $stmt = $dbh->prepare($query);
+    $stmt->bindParam(':idInteret', $idInteret);
+    $stmt->bindParam(':idMembre', $idMembre);
+    $stmt->execute();
 }
+
+function deleteInterestIntoMember($idInteret, $idMembre){
+    $dbh =dbconnect();
+    $query = "DELETE FROM membres_interets
+    WHERE interet_id= :idInteret, membre_id:idMembre";
+    $stmt = $dbh->prepare($query);
+    $stmt->bindParam(':idInteret', $idInteret);
+    $stmt->bindParam(':idMembre', $idMembre);
+    $stmt->execute();
+}
+
+
+function addMemberRole($name) {
+    $dbh =dbconnect();
+}
+
 ?>

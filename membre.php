@@ -11,10 +11,19 @@ $interets = getMembersInterestNameByInterestId($membre["id"]);
 
 if(isset($_POST['addMemberInteret'])) {
     $addMemberInteret = $_POST['addMemberInteret'];
-    addInterestIntoMember($addMemberInteret);
-
+    addInterestIntoMember($addMemberInteret,$id);
 }
+
+
+
+if(isset($_POST['addMemberRole'])) {
+    $addMemberRole =$_POST['addMemberRole'];
+    addMemberRole($addMemberRole);
+    var_dump($addMemberRole);
+}
+
 $allInterets= getAllInteret();
+$allRoles= getAllRole();
 ?>
 
 
@@ -34,13 +43,27 @@ $allInterets= getAllInteret();
         </div>
     </div>
         <div class="inputContainer">
-        <h2>Ajouter un nouveau centre d'intérêt à ce membre.</h2>
-        <select name="addMemberInteret" id="">
-            <?php foreach($allInterets as $allInteret)  {  ?>
-                <option value=""><?php echo ucfirst($allInteret['nom_interet']) ?></option>              
-            <?php } ?>  
-            <input type="submit" value="enregistrer">
-        </select>
+        <h2>Ajouter ou supprimer un centre d'intérêt à ce membre.</h2>
+        <form action="" method="post">
+            <select name="addMemberInteret" id="">
+                <?php foreach($allInterets as $allInteret)  {  ?>
+                    <option value="<?php echo ucfirst($allInteret['id']) ?>"><?php echo ucfirst($allInteret['nom_interet']) ?></option>              
+                <?php } ?>  
+                <input type="submit" value="enregistrer">
+                <input type="submit" value="supprimer">
+            </select>
+        </form>
+
+        <h2>Ajouter un rôle à ce membre.</h2>
+        <form action="" method="post">
+        <?php foreach($allRoles as $allRole) { ?> 
+            <input type="checkbox" name="addMembersRole<?php echo $allRole['id']  ?>" id=""><?php echo $allRole['id']  ?>
+            
+        <?php } ?>
+            <div>
+                <input type="submit" value="valider">
+            </div>
+        </form>
     </div>              
     
     <button><a href="index.php ?>">Retour accueil</a> </button>
