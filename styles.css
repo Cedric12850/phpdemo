@@ -1,0 +1,93 @@
+:root {
+    --color1: linear-gradient(rgb(254, 255, 171),rgb(253, 253, 253));
+    --marginBloc: 2% 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*::first-letter{
+    text-transform: capitalize; 
+}
+
+h1 {
+    color: rgb(143, 145, 255);
+    text-align: center;
+    margin: var(--marginBloc);
+}
+
+.container {
+    margin: auto;
+    width: 90%;
+}
+.userContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin: var(--marginBloc);
+}
+
+.userCard {
+    border: 1px solid gray;
+    margin: 1%;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--color1);
+    box-shadow: 1px 1px 5px 1px gray;
+}
+
+.cardDetails {  
+    justify-content: center;
+}
+
+span {
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    margin: 3px;
+
+    &:hover {
+        background-color: rgb(196, 228, 255);
+        padding: 1%;
+    }
+}
+
+button {
+    background: linear-gradient(rgb(150, 150, 255), rgb(209, 207, 207));
+    border-radius: 10px;
+    padding: 1%;
+    margin: 2%;
+}
+.liste{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    &>li{
+        border: 1px solid gray;
+        margin: 1%;
+        padding: 1%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: var(--color1);
+        box-shadow: 1px 1px 5px 1px gray;
+    }
+}
+
+.inputContainer {
+    margin: var(--marginBloc);
+    & > form{
+        margin: var(--marginBloc);        
+    }
+}
+
+input[type="submit"] {
+
+}
