@@ -3,9 +3,30 @@ require_once 'partials/header.php';
 //le serveur va aller chercher le fichier et l'inclure à cet endroit
 $membres = getAllMembers();
 
+//ternaire vérifeir si un users est connecté
+//(isset($_SESSION['user']) && !empty($_SESSION['user'])) ? $user =  $_SESSION['user']['email'] : $user = "invité"; 
+if(isset($_SESSION['user'])&& !empty($_SESSION['user'])){
+    $user = $_SESSION['user']['pseudo'];
+}else {
+    $user = 'Invité';
+}
+
 ?>
+<head>
+    <div>
+        <form action="login.php" method="get">
+            <input type="submit" value="Se connecter" name="login">
+        </form>
+        <form action="logout.php" method="get">
+            <input type="submit" value="Déconnexion" name="logout">
+        </form>
+    </div>
+    <div>
+        <p>Bienvenu(e) <?php echo $user ?></p>
+    </div>
+</head>
 
-
+<main>
     <h1>DWWM Rodez 2024, la GOAT</h1>
     <div class="container">
         <div class="userContainer">
@@ -25,9 +46,13 @@ $membres = getAllMembers();
         <div>           
         </div>
    </div>
-   <button><a href="newrole.php">Ajouter un role.</button></a>
-   <button><a href="newinteret.php">Ajouter un centre d'intérêt.</button></a>
+   <form action="newrole.php" method="get">
+        <input type="submit" value="Ajouter un rôle">
+    </form>
+    <form action="newinteret.php" method="get">
+            <input type="submit" value="Ajouter un centre d'intérêt">
+    </form>
 
-
+</main>
    <?php require_once 'partials/footer.php' ?>
 

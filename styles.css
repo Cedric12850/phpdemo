@@ -1,5 +1,6 @@
 :root {
     --color1: linear-gradient(rgb(254, 255, 171),rgb(253, 253, 253));
+    --colorhover: rgb(206, 204, 204);
     --marginBloc: 2% 0;
 }
 
@@ -52,15 +53,17 @@ a {
     text-decoration: none;
     color: black;
     margin: 3px;
-
     &:hover {
-        background-color: rgb(196, 228, 255);
-        padding: 1%;
+        background-color: var(--colorhover);
     }
+
+}
+#connectBtn {
+    padding: 1% 2%;
 }
 
-button {
-    background: linear-gradient(rgb(150, 150, 255), rgb(209, 207, 207));
+input {
+    
     border-radius: 10px;
     padding: 1%;
     margin: 2%;
@@ -86,8 +89,4 @@ button {
     & > form{
         margin: var(--marginBloc);        
     }
-}
-
-input[type="submit"] {
-
 }

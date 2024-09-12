@@ -29,7 +29,9 @@ require_once ('function.php');
                 
             <?php } ?>
         </div>
-        <button><a href="index.php ?>">Retour accueil</a> </button>
+        <form action="index.php" method="get">
+            <input type="submit" value="Accueil">
+        </form>
     </div>
 </body>
 </html>

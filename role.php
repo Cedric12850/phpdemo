@@ -21,8 +21,12 @@ $role = getRoleNameByRoleId($id);
                 </div> 
              <?php } ?>
         </div>
-        <button><a href="newrole.php">Ajouter un role.</button></a>
-        <button><a href="index.php ?>">Retour accueil</a> </button>
+        <form action="index.php" method="get">
+            <input type="submit" value="Accueil">
+        </form>
+        <form action="newrole.php" method="get">
+            <input type="submit" value="Ajouter un rôle">
+        </form>
     </div>
 
 <?php require_once 'partials/footer.php' ?>

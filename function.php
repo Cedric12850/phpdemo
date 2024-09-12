@@ -167,4 +167,15 @@ function addMemberRole($name) {
     $dbh =dbconnect();
 }
 
+function isUser ($pseudo) {
+    $dbh = dbconnect();
+    $query = "SELECT * FROM user_login
+    WHERE pseudo = :pseudo";
+    $stmt = $dbh->prepare($query);
+    $stmt->bindParam (':pseudo', $pseudo);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result;
+}
+
 ?>

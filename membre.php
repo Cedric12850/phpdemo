@@ -45,19 +45,20 @@ $allRoles= getAllRole();
         <div class="inputContainer">
         <h2>Ajouter ou supprimer un centre d'intérêt à ce membre.</h2>
         <form action="" method="post">
-            <select name="addMemberInteret" id="">
+            <!-- <select name="addMemberInteret" id=""> -->
                 <?php foreach($allInterets as $allInteret)  {  ?>
-                    <option value="<?php echo ucfirst($allInteret['id']) ?>"><?php echo ucfirst($allInteret['nom_interet']) ?></option>              
+                    <!-- <option value="<?php echo ucfirst($allInteret['id']) ?>"><?php echo ucfirst($allInteret['nom_interet']) ?></option>               -->
+                    <input type="checkbox" name="addInterestIntoMember<?php echo ucfirst($allInteret['id']) ?>" id=""><?php echo ucfirst($allInteret['nom_interet']) ?>
                 <?php } ?>  
                 <input type="submit" value="enregistrer">
                 <input type="submit" value="supprimer">
-            </select>
+            <!-- </select> -->
         </form>
 
         <h2>Ajouter un rôle à ce membre.</h2>
         <form action="" method="post">
         <?php foreach($allRoles as $allRole) { ?> 
-            <input type="checkbox" name="addMembersRole<?php echo $allRole['id']  ?>" id=""><?php echo $allRole['id']  ?>
+            <input type="checkbox" name="addMembersRole<?php echo $allRole['nom_role']  ?>" id=""><?php echo ucfirst ($allRole['nom_role'])  ?>
             
         <?php } ?>
             <div>
@@ -66,6 +67,8 @@ $allRoles= getAllRole();
         </form>
     </div>              
     
-    <button><a href="index.php ?>">Retour accueil</a> </button>
+    <form action="index.php" method="get">
+            <input type="submit" value="Accueil">
+    </form>
 
 <?php require_once 'partials/footer.php' ?>

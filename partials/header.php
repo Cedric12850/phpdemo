@@ -1,4 +1,6 @@
-<?php require_once('function.php');
+<?php 
+session_start();
+require_once('function.php');
 //le serveur va aller chercher le fichier et l'inclure à cet endroit
 
 ?>

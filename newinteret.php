@@ -33,5 +33,7 @@ $allInterets= getAllInteret();
         <input type="submit" value="Supprimer">
     </form>
     </div>
-    <button><a href="index.php ?>">Retour accueil</a> </button>
+    <form action="index.php" method="get">
+        <input type="submit" value="Accueil">
+    </form>
 </div>
